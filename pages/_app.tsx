@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { MoralisProvider } from 'react-moralis'
 import {ModalProvider} from "react-simple-hook-modal";
-
+import {AmazonProvider} from "../context/AmazonContext";
 // @ts-ignore
 function MyApp({ Component, pageProps }) {
   return (
@@ -11,12 +11,12 @@ function MyApp({ Component, pageProps }) {
           serverUrl={process.env.NEXT_PUBLIC_MORALIS_SERVER}
           appId={process.env.NEXT_PUBLIC_MORALIS_APP_ID}
       >
-        {/*<AmazonProvider>*/}
+        <AmazonProvider>
         {/* @ts-ignore */}
           <ModalProvider>
             <Component {...pageProps} />
           </ModalProvider>
-        {/*</AmazonProvider>*/}
+        </AmazonProvider>
       </MoralisProvider>
   )
 }
