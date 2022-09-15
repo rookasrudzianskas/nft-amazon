@@ -38,7 +38,7 @@ export const AmazonProvider = ({ children }) => {
         data: assetsData,
         error: assetsDataError,
         isLoading: assetsDataIsLoading,
-    } = useMoralisQuery('Assets');
+    } = useMoralisQuery('assets');
 
     useEffect(() => {
         ;(async () => {
@@ -48,6 +48,27 @@ export const AmazonProvider = ({ children }) => {
             }
         })()
     }, [isAuthenticated]);
+
+    const getAssets = async () => {
+        try {
+            await enableWeb3()
+            // const query = new Moralis.Query('Assets')
+            // const results = await query.find()
+            setAssets(assetsData)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        ;(async () => {
+            if(isWeb3Enabled) {
+                await getAssets();
+            }
+        })();
+    }, [getAssets, isWeb3Enabled]);
+
+
 
     const handleSetUsername = () => {
         if (user) {
@@ -89,7 +110,7 @@ export const AmazonProvider = ({ children }) => {
                 username,
                 setUsername,
                 handleSetUsername,
-                // assets,
+                assets,
                 // recentTransactions,
                 // ownedItems,
             }}
