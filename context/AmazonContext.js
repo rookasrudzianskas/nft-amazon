@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { useMoralis, useMoralisQuery } from 'react-moralis'
-// import { amazonAbi, amazonCoinAddress } from '../lib/constants'
+import { amazonAbi, amazonCoinAddress } from '../lib/constants'
 import { ethers } from 'ethers'
 
 export const AmazonContext = createContext();
@@ -48,6 +48,35 @@ export const AmazonProvider = ({ children }) => {
             }
         })()
     }, [isAuthenticated]);
+
+
+    const getBalance = async () => {
+        try {
+            if (!isAuthenticated || !currentAccount) return
+            const options = {
+                contractAddress: amazonCoinAddress,
+                functionName: 'balanceOf',
+                abi: amazonAbi,
+                params: {
+                    account: currentAccount,
+                },
+            }
+
+            if (isWeb3Enabled) {
+                const response = await Moralis.executeFunction(options)
+                console.log(response.toString())
+                setBalance(response.toString())
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const buyTokens = async () => {
+        if(!isAuthenticated) {
+            await authenticate();
+        }
+    }
 
     const getAssets = async () => {
         try {
