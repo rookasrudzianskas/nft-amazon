@@ -32,13 +32,13 @@ export const AmazonProvider = ({ children }) => {
         data: userData,
         error: userDataError,
         isLoading: userDataIsLoading,
-    } = useMoralisQuery('_User')
+    } = useMoralisQuery('_User');
 
     const {
         data: assetsData,
         error: assetsDataError,
         isLoading: assetsDataIsLoading,
-    } = useMoralisQuery('Assets')
+    } = useMoralisQuery('Assets');
 
 
 
