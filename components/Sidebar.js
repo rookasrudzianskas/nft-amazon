@@ -1,5 +1,11 @@
 import React from 'react';
 import {ConnectButton} from "web3uikit";
+import Image from "next/image";
+import Link from "next/link";
+import { FaBox } from 'react-icons/fa'
+import { BsFillBookmarkFill } from 'react-icons/bs'
+import { BsFillPersonFill } from 'react-icons/bs'
+import { AiOutlineHistory } from 'react-icons/ai'
 
 const styles = {
     container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
@@ -19,9 +25,96 @@ const styles = {
 
 
 const Sidebar = () => {
+    const isAuthenticated = false;
+
+    // const {
+    //     isAuthenticated,
+    //     buyTokens,
+    //     getBalance,
+    //     nickname,
+    //     setNickname,
+    //     username,
+    //     handleSetUsername,
+    // } = useContext(AmazonContext)
+
     return (
         <div className={styles.container}>
+            <div className={styles.profile}>
+                {isAuthenticated && (
+                    <>
+                        <div className={styles.profilePicContainer}>
+                            <Image
+                                alt="profile picture"
+                                className={styles.profilePic}
+                                height={100}
+                                width={100}
+                            />
+                        </div>
+                        {!username ? (
+                            <>
+                                <div className={styles.username}>
+                                    <input
+                                        type='text'
+                                        placeholder='Username....'
+                                        className={styles.usernameInput}
+                                        // value={nickname}
+                                        // onChange={e => setNickname(e.target.value)}
+                                    />
+                                </div>
+                                <button
+                                    className={styles.setNickname}
+                                    // onClick={handleSetUsername}
+                                >
+                                    Set Nickname
+                                </button>
+                            </>
+                        ) : (
+                            <div>
+                                <div className={styles.welcome}>Rokas</div>
+                            </div>
+                        )}
+                    </>
+                )}
 
+                <div className={styles.connectButton}>
+                    <ConnectButton />
+                </div>
+            </div>
+            <div className={styles.menu}>
+                <Link href='/'>
+                    <div className={styles.menuItem}>
+                        <Image
+                            // src={logo}
+                            height={30}
+                            width={30}
+                            className={styles.amazonLogo}
+                        />
+                        My Amazon
+                        <br /> Board
+                    </div>
+                </Link>
+                <div className={styles.menuItem}>
+                    <FaBox />
+                    Collections
+                </div>
+                <div className={styles.menuItem}>
+                    <BsFillBookmarkFill />
+                    Saved
+                </div>
+                <div className={styles.menuItem}>
+                    <BsFillPersonFill />
+                    Profile
+                </div>
+                <Link href='/history'>
+                    <div className={styles.menuItem}>
+                        <AiOutlineHistory />
+                        Transaction History
+                    </div>
+                </Link>
+            </div>
+            <div className={styles.companyName}>
+                {/*<Image src={logoFull} alt='amazon' height={100} width={100} />*/}
+            </div>
         </div>
     );
 };
