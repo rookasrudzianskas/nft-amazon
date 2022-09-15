@@ -40,6 +40,28 @@ export const AmazonProvider = ({ children }) => {
         isLoading: assetsDataIsLoading,
     } = useMoralisQuery('Assets');
 
+    useEffect(() => {
+        ;(async () => {
+            if (isAuthenticated) {
+                const currentUsername = await user?.get('username');
+                setUsername(currentUsername);
+            }
+        })()
+    }, [isAuthenticated]);
+
+    const handleSetUsername = () => {
+        if (user) {
+            if (nickname) {
+                user.set('nickname', nickname)
+                user.save()
+                setNickname('')
+            } else {
+                console.log("Can't set empty nickname")
+            }
+        } else {
+            console.log('No user')
+        }
+    }
 
 
 
