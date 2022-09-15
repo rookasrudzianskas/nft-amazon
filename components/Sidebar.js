@@ -46,6 +46,7 @@ const Sidebar = () => {
                     <>
                         <div className={styles.profilePicContainer}>
                             <Image
+                                src={`https://avatars.dicebear.com/api/pixel-art/${username}.svg`}
                                 alt="profile picture"
                                 className={styles.profilePic}
                                 height={100}
