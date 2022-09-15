@@ -6,9 +6,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@walletconnect/web3-provider": "^1.8.0",
+    "@web3auth/web3auth": "^2.1.2",
+    "ethers": "^5.7.1",
+    "magic-sdk": "^9.0.0",
+    "moment": "^2.29.4",
+    "moralis": "^2.4.0",
+    "moralis-v1": "^1.11.0",
     "next": "latest",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-icons": "^4.4.0",
+    "react-moralis": "^1.4.2",
+    "react-simple-hook-modal": "^1.1.0",
+    "react-spinners": "^0.13.4",
+    "web3uikit": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "17.0.35",
