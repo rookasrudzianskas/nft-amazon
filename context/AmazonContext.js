@@ -66,7 +66,7 @@ export const AmazonProvider = ({ children }) => {
                 await getAssets();
             }
         })();
-    }, [getAssets, isWeb3Enabled]);
+    }, [getAssets, isWeb3Enabled, assetsData, assetsDataIsLoading]);
 
 
 
