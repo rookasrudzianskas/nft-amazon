@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { AmazonContext } from '../context/AmazonContext'
+import Header from "./Header";
+import Cards from "./Cards";
 
 // import Cards from './Cards'
 // import Featured from './Featured'
@@ -20,9 +22,9 @@ const Main = () => {
 
     return (
         <div className={styles.container}>
-            {/*<Header />*/}
+            <Header />
             {/*<Featured />*/}
-            {/*<Cards />*/}
+            <Cards />
             {recentTransactions?.length > 0 && (
                 <h1 className={styles.recentTitle}>Recent Transaction</h1>
             )}
