@@ -6,6 +6,8 @@ import { FaBox } from 'react-icons/fa'
 import { BsFillBookmarkFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiOutlineHistory } from 'react-icons/ai'
+import logo from '../assets/amazon_logo.png'
+import logoFull from '../assets/amazon_logo_full.png'
 
 const styles = {
     container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
@@ -84,7 +86,7 @@ const Sidebar = () => {
                 <Link href='/'>
                     <div className={styles.menuItem}>
                         <Image
-                            // src={logo}
+                            src={logo}
                             height={30}
                             width={30}
                             className={styles.amazonLogo}
@@ -113,7 +115,7 @@ const Sidebar = () => {
                 </Link>
             </div>
             <div className={styles.companyName}>
-                {/*<Image src={logoFull} alt='amazon' height={100} width={100} />*/}
+                <Image src={logoFull} alt='amazon' height={100} width={100} />
             </div>
         </div>
     );
