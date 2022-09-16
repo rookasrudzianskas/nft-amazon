@@ -108,4 +108,4 @@ const BuyModal = ({ close, buyTokens }) => {
     )
 }
 
-export default BuyModal
+export default BuyModal;
